@@ -159,7 +159,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.wfc_avail_ovr=1 \
     service.qti.ims.enabled=1 \
     persist.radio.videopause.mode=1 \
-    persist.volte_enabled_by_hw=1
+    persist.volte_enabled_by_hw=1 \
+    ro.telephony.block_binder_thread_on_incoming_calls=false
 
 # Fast charge
 PRODUCT_PROPERTY_OVERRIDES += \
