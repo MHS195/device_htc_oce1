@@ -162,6 +162,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     service.qti.ims.enabled=1 \
     persist.radio.videopause.mode=1 \
     persist.volte_enabled_by_hw=1 \
+    ro.telephony.handle_audio_direction_changes_between_call_state_changes=false \
     ro.telephony.block_binder_thread_on_incoming_calls=false
 
 # Fast charge
