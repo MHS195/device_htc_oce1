@@ -231,7 +231,8 @@ TARGET_LD_SHIM_LIBS := \
     /system/product/lib64/libdpmframework.so|libcutils_shim.so \
     /system/vendor/lib/libcameraface.so|libshim_sensor.so \
     /system/product/lib64/libimsmedia_jni.so|libshim_libimsmedia.so \
-    /system/lib64/lib-imsvt.so|libshim_libimsmedia.so
+    /system/lib64/lib-imsvt.so|libshim_libimsmedia.so \
+    /system/lib64/lib-imsvideocodec.so|libui_shim.so
 
 # Thermal
 USE_DEVICE_SPECIFIC_THERMAL := true    

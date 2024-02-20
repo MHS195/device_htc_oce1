@@ -271,6 +271,7 @@ PRODUCT_PACKAGES += \
 #IMS Shim
 PRODUCT_PACKAGES += \
     libbase_shim \
+    libui_shim \
     libshim_libimsmedia
 
 # Init
