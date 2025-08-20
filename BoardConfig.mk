@@ -55,7 +55,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff printk.devkmsg=on androidboot.hardware=qcom androidkey.dummy=1 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=tty0 androidboot.console=ttyHSL0 user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff printk.devkmsg=on androidboot.hardware=qcom androidkey.dummy=1
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -63,7 +63,7 @@ BOARD_RAMDISK_OFFSET     := 0x01000000
 # BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/htc/oce
-TARGET_KERNEL_CONFIG := oce_defconfig
+TARGET_KERNEL_CONFIG := hal_defconfig
 
 BOARD_ROOT_EXTRA_FOLDERS := bt_firmware crashdump.d firmware persist
 
@@ -90,6 +90,7 @@ AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
 AUDIO_FEATURE_ENABLED_SND_MONITOR := true
 #AUDIO_FEATURE_ENABLED_VORBIS_OFFLOAD := true
 #AUDIO_FEATURE_ENABLED_WMA_OFFLOAD := true
+										
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 BOARD_SUPPORTS_SOUND_TRIGGER := false
 BOARD_USES_ALSA_AUDIO := true
@@ -119,6 +120,10 @@ TARGET_PROVIDES_POWERHAL := true
 TARGET_POWERHAL_VARIANT := voxpopuli
 TARGET_USES_INTERACTION_BOOST := false
 
+					 
+										
+									  
+										   
 
 # Dex
 ifeq ($(HOST_OS),linux)
@@ -144,6 +149,9 @@ VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 USE_OPENGL_RENDERER := true
 
+	 
+								 
+
 # Enable real time lockscreen charging current values
 BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 
@@ -151,7 +159,7 @@ BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 TARGET_PER_MGR_ENABLED := true
 
 # Encryption
-TARGET_HW_DISK_ENCRYPTION := true
+# TARGET_HW_DISK_ENCRYPTION := true
 # TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
 # Filesystem
@@ -165,14 +173,19 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 
 # HIDL
+																									  
+																	   
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
 
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
 
+	 
+											
+
 # Init
-# TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_INIT_VENDOR_LIB := libinit_oce
 TARGET_RECOVERY_DEVICE_MODULES := libinit_oce
 
@@ -199,7 +212,7 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE := 234881024
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3103784960 # For smallest China variant, 3690987520 for Euro DUGL / UHL
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3690987520 # For smallest China variant, 3690987520 for Euro DUGL / UHL
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 59039023104
 TARGET_USES_MKE2FS := true
 
@@ -207,7 +220,7 @@ TARGET_USES_MKE2FS := true
 BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.full
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Release
@@ -216,17 +229,22 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/htc/oce/releasetools
 # RIL
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_RIL_VARIANT := caf
+								  
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
+# include device/qcom/sepolicy/sepolicy.mk
+													  
 # BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # SHIMS
+						
 TARGET_LD_SHIM_LIBS := /system/vendor/lib64/libril.so|/system/vendor/lib64/libshim_ril.so
+																				  
+																							 
+																		  
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
 # PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
@@ -242,6 +260,7 @@ WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcm4359_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P     := "/vendor/firmware/fw_bcm4359.bin"
 WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcm4359.bin"
+
 
 # inherit from the proprietary version
 -include vendor/htc/oce/BoardConfigVendor.mk
