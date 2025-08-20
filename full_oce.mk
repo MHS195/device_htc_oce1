@@ -22,6 +22,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := oce
-PRODUCT_NAME := full_oce
+PRODUCT_NAME := halium_oce
 
 $(call inherit-product-if-exists, vendor/htc/oce/oce-vendor.mk)
