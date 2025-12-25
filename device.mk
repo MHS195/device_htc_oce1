@@ -179,8 +179,8 @@ PRODUCT_PACKAGES += \
     disable_configstore
 
 # Connectivity Engine support (CNE)
-PRODUCT_PACKAGES += \
-    libcnefeatureconfig
+#PRODUCT_PACKAGES += \
+#    libcnefeatureconfig
 
 # Cutout
 PRODUCT_PACKAGES += \
