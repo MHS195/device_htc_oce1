@@ -179,8 +179,8 @@ PRODUCT_PACKAGES += \
     disable_configstore
 
 # Connectivity Engine support (CNE)
-PRODUCT_PACKAGES += \
-    libcnefeatureconfig
+#PRODUCT_PACKAGES += \
+#    libcnefeatureconfig
 
 # Cutout
 PRODUCT_PACKAGES += \
@@ -499,7 +499,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service.legacy \
+    android.hardware.wifi@1.0 \
     ipacm \
     IPACM_cfg.xml \
     libwpa_client \
