@@ -71,8 +71,8 @@ TARGET_KERNEL_CONFIG := oce_defconfig
 TARGET_KERNEL_CLANG_COMPILE := false
 TARGET_KERNEL_LLVM_BINUTILS := false
 TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
-TARGET_KERNEL_ADDITIONAL_FLAGS := \
-    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+#TARGET_KERNEL_ADDITIONAL_FLAGS := \
+#    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
 
 BOARD_ROOT_EXTRA_FOLDERS := \
     carrier \
